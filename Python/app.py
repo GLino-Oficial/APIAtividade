@@ -29,3 +29,20 @@ def obter_produto(id):
 @app.route('/produtos', methods=['POST'])
 def criar_produto():
     dados = request.get_json()
+    
+# Verifica se os campos obrigatórios foram enviados
+    if 'nome' not in dados or 'preco' not in dados:
+        return jsonify({"erro": "Os campos 'nome' e 'preco' são obrigatórios."}), 400
+    
+# Criar produto
+    novo_produto = {
+        "id": gerar_id(),
+        "nome": dados['nome'],
+        "preco": dados['preco']
+    }
+    
+    produtos.append(novo_produto)
+    return jsonify(novo_produto), 201
+# Inicia o servidor
+if __name__ == '__main__':
+    app.run(debug=True)
