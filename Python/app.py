@@ -1,7 +1,8 @@
-## Importar Flask
+from flask_cors import CORS
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
+CORS(app)  # Isso permite requisições de outros domínios, como o Live Server
 
 # Base de dados
 produtos = []
