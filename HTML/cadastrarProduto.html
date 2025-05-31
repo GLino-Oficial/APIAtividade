@@ -24,8 +24,22 @@
     </ul>
   </div>
 </nav>
-  
+  <div class="container">
+  <h2>Cadastrar Produto</h2>
+  <form id="formProduto">
+    <div class="form-group">
+      <label for="nome">Nome do Produto:</label>
+      <input type="text" class="form-control" id="nome" required>
+    </div>
+    <div class="form-group">
+      <label for="preco">Preço:</label>
+      <input type="text" class="form-control" id="preco"  required>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>
+</div>
 
  <script src="/JS/verificarAPI.js"></script>
+ <script src="/JS/cadastrarProdutos.js"></script>
 </body>
 </html>
