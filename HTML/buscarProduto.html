@@ -24,8 +24,14 @@
     </ul>
   </div>
 </nav>
-  
+  <div class="container" style="margin-top: 20px;">
+  <h3>Buscar Produto</h3>
+  <input type="text" id="input-nome-produto" placeholder="Digite o nome do produto" class="form-control" />
+  <button onclick="buscarProduto()" class="btn btn-primary" style="margin-top: 10px;">Buscar</button>
+  <div id="resultado-busca" style="margin-top: 15px;"></div>
+</div>
 
- <script src="/JS/verificarAPI.js"></script>
+  <script src="/JS/verificarAPI.js"></script>
+ <script src="/JS/buscarProduto.js"></script>
 </body>
 </html>

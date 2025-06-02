@@ -24,8 +24,23 @@
     </ul>
   </div>
 </nav>
-  
+  <div class="container" style="margin-top: 30px;">
+  <h3>Editar Produto</h3>
+  <input type="text" id="buscar-produto-editar" placeholder="Nome atual do produto" class="form-control" />
+  <button onclick="carregarProdutoParaEdicao()" class="btn btn-warning" style="margin-top: 10px;">Buscar</button>
+
+  <div id="form-edicao" style="display: none; margin-top: 20px;">
+    <input type="text" id="novo-nome" class="form-control" placeholder="Novo nome">
+    <input type="number" id="novo-preco" class="form-control" placeholder="Novo preço" style="margin-top: 10px;">
+    <button onclick="salvarEdicao()" class="btn btn-success" style="margin-top: 10px;">Salvar</button>
+  </div>
+
+  <div id="mensagem-edicao" style="margin-top: 15px;"></div>
+</div>
+
+ <script src="/JS/editarProduto.js"></script>
 
  <script src="/JS/verificarAPI.js"></script>
+ 
 </body>
 </html>

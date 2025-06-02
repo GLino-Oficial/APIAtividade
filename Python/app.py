@@ -44,6 +44,32 @@ def criar_produto():
     
     produtos.append(novo_produto)
     return jsonify(novo_produto), 201
+
+@app.route('/produtos/<int:id>', methods=['PUT'])
+def atualizar_produto(id):
+    dados = request.get_json()
+    nome = dados.get('nome')
+    preco = dados.get('preco')
+
+    for produto in produtos:
+        if produto['id'] == id:
+            produto['nome'] = nome
+            produto['preco'] = preco
+            return jsonify(produto), 200
+
+    return jsonify({'erro': 'Produto não encontrado'}), 404
+
+@app.route('/produtos/<int:id>', methods=['DELETE'])
+def excluir_produto(id):
+    global produtos  # Para garantir que a lista de produtos seja alterada corretamente
+    for produto in produtos:
+        if produto['id'] == id:
+            produtos = [p for p in produtos if p['id'] != id]  # Remove o produto da lista
+            return jsonify({'mensagem': 'Produto excluído com sucesso!'}), 200
+    
+    return jsonify({'erro': 'Produto não encontrado'}), 404
+
+
 # Inicia o servidor
 if __name__ == '__main__':
     app.run(debug=True)
