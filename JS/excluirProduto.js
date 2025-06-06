@@ -1,6 +1,20 @@
 function excluirProduto() {
-  const id = document.getElementById('input-id-produto').value;
-  const mensagem = document.getElementById('mensagem-excluir');
+  const id = document.getElementById('produto-id-excluir').value.trim();
+  const mensagem = document.getElementById('mensagem-exclusao');
+
+  if (!id) {
+    mensagem.textContent = 'Informe o ID do produto.';
+    mensagem.style.color = 'red';
+    return;
+  }
+
+  const confirmar = confirm(`Tem certeza que deseja excluir o produto de ID ${id}?`);
+
+  if (!confirmar) {
+    mensagem.textContent = 'Exclusão cancelada.';
+    mensagem.style.color = 'orange';
+    return;
+  }
 
   fetch(`http://localhost:5000/produtos/${id}`, {
     method: 'DELETE'
